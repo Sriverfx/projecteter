@@ -7,7 +7,7 @@ const rooms = {
   'room1': {
     "name": "Room1",
     "description": "11",
-    "question": "You see a giant venomous snake blocking the next door. You can fight the dangerous snake or run to a secret door on your right?",
+    "question": "you see a giant venomous snake blocking the next door. You can fight the dangerous snake or run to a secret door on your right?",
     "options": {
       1: {
         'weapon': 'Attack snake with your shiny sword.',
@@ -23,8 +23,8 @@ const rooms = {
 
   'room2a': {
     "name": "room 2a",
-    "description": "Risky choice buy you made it to the next room",
-    "question": "Your fight almost kill you but you managed to survive. Gods are with you. The door led you to a room with two magic statues which are covering a trap door. One statue is gold and the other is silver. You can attack and break only one. Which one ? ",
+    "description": "",
+    "question": "your fight almost kill you but you managed to survive. Gods are with you. The door led you to a room with two magic statues which are covering a trap door. One statue is gold and the other is silver. You can attack and break only one. Which one ? ",
     "options": {
       1: {
         'weapon': 'Attack the gold statue',
@@ -40,11 +40,11 @@ const rooms = {
 
   'room2b': {
     "name": "Room2b",
-    "description": "This door led you to an empty room. You should better go back.",
-    "question": "Quest 2b",
+    "description": "",
+    "question": "this door leads to an empty room. You should better go back.",
     "options": {
       1: {
-        'weapon': 'Go back to room 1',
+        'weapon': 'Go back to the previous room',
         'nextRoom': 'room1'
       },
       2: {
@@ -58,14 +58,14 @@ const rooms = {
   'room3': {
     "name": "Room3",
     "description": "",
-    "question": "The glod statue breaks and its magic dust covers your body and increases your armor points.While you celebrate your vivtory, you enter the next room. A dark room with that smells like corpse. You have to find the way to the next room.",
+    "question": "the gold statue breaks and its magic dust covers your body and increases your armor points. You enter the next room. A dark room that smells like death. You have to find the way to the next room.",
     "options": {
       1: {
-        'weapon': 'Trust your other senses and find the next door being blind. ',
+        'weapon': 'Trust your other senses and find the next door in the dark. ',
         'nextRoom': 'room4a'
       },
       2: {
-        'weapon': 'You remember that you have also have some magic matches.',
+        'weapon': 'You remember that you also have some magic matches.',
         'nextRoom': 'room4b'
       },
     },
@@ -76,7 +76,7 @@ const rooms = {
   'room4a': {
     "name": "room4a",
     "description": "",
-    "question": "this room is blocked. Do you want to go back to room 3 or end the game",
+    "question": "this room is blocked. Do you want to go back to the previous room or end the game",
     "options": {
       1: {
         'weapon': 'Go back to room 3',
@@ -99,7 +99,7 @@ const rooms = {
     "options": {
       1: {
         'weapon': 'Attack him him with your sword. ',
-        'nextRoom': 'room12'
+        'nextRoom': 'room111'
       },
       2: {
         'weapon': 'Try to block his first attack and then attack him',
@@ -172,7 +172,7 @@ const rooms = {
     "options": {
       1: {
         'weapon': 'Dragons doesnt exist this is in my imagination. Attack! ',
-        'nextRoom': 'room12'
+        'nextRoom': 'room111'
       },
       2: {
         'weapon': 'You are experienced after all this battles. Avoid his fire and stab him in the neck.',
