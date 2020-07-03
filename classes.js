@@ -1,12 +1,10 @@
-class Player
-{
-    constructor(name)
-    {
+class Player {
+    constructor(name) {
         this.name = name;
     }
 }
 
 module.exports = {
     Player
-    
+
 };
