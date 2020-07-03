@@ -1,87 +1,36 @@
-var readlineSync = require('readline-sync');
+const readlineSync = require('readline-sync');
 const Player = require('./classes.js')
-var clear = require('clear');
+const clear = require('clear');
+const rooms = require('./rooms.js')
 
-// const rl = readlineSync.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
-
-
-   clear();
-let playerName = readlineSync.question('Whats your name? ');
-   
+clear();
+let playerName = readlineSync.question('Whats your name? ');   
 Player.name = playerName;
 clear();
-console.log(`your journey will start soon ${ Player.name}` + '\n');
-    
-    
-    
-   
-let a = true;  
-// Store JSON data in a JS variable
-var room1 = `{"question": "you see a giant venomous snake blocking the next door. You can fight the dangerous snake or run to a secret door on your right. What do you do?", "age": 22, "country": "United States"}`;
-var room2a = `{"question": "Your fight almost kill you $playerName but you managed to survive. Gods are with you. The door led you to a room with two magic statues which are covering a trap door. One statue is gold and the other one is silver. You can attack only one of them. Which one ? ", "age": 22, "country": "United States"}`;
+console.log(`your journey will start now ${ Player.name}` + '\n');
 
-// Converting JSON-encoded string to JS object
-var obj1 = JSON.parse(room1);
-var obj2 = JSON.parse(room2a);
-// console.log(obj.question1);
-// Accessing individual value from JS object 
-
-while (a==true)  {             
-  clear();
-  answer = readlineSync.keyIn(Player.name + ', ' + obj1.question +  '\n' + '\n' + '1) attack snake with your shiny sword.' + '\n' + '2) run to the door.' + '\n');
-  if (answer == '1' || answer == '2'){
-  a = false;
-  clear();
-
-  }
-}           
-        
-
-        switch(answer) {  
-                case "1":
-                  
-                    console.log(`Risky choice ${ Player.name} but you did it. You are in the next room! ` + '\n' );
-                    let a = true; 
-                    while (a==true)  {   
-                    
-                    answer2 = readlineSync.keyIn(obj2.question +  '\n' + '\n' + '1) Attack the gold statue' + '\n' + '2) attack the silver statue' + '\n');
-                    clear();
-                    if (answer2 == '1' || answer2 == '2'){
-                      a = false;
-                    }
-                   }         
-                  break;            
-                default:
-                    console.log('awesome choice2');
-             }   
-           
-
-
-
-
-
-
-
-
-
-
- 
-
-        // if (answer === 'red'){
-        //     console.log(`awesome choice ${ Player.name}`);
-            
-        //     //console.log(`you are in level 2: ${answer}`);
-        //     //rl.question('what to do next2? ', (answer) => {
-                
-        // }  
-        // else {
-        //     console.log('awesome choice2');
-            
-        // }
-
+//We will start with the initial room Room1
+let currentRoom = rooms.room1;
   
-    // TODO: Log the answer in a database
-    //console.log(`Thank you for your valuable feedback: ${answer}`);
+//While the room is not the final room, run!
+while (currentRoom.terminatingRoom !== true){ 
+  
+  if(currentRoom.name != 'room12'){
+  clear();
+  // console.log('You are now at : ' + currentRoom.name + '\n');  
+  // console.log(currentRoom.description); 
+
+  var answer = readlineSync.keyIn(Player.name + ', ' + currentRoom.question + '\n' + '\n'+ '1.  ' + currentRoom.options[1].weapon + '\n' + '2.  ' + currentRoom.options[2].weapon, {limit:'12'} ); 
+  myNextRoom = currentRoom.options[answer].nextRoom;
+  //get the actual room inside the variable
+  currentRoom = rooms[myNextRoom];
+  }
+  else {
+    console.log('\n' +`That wasn't a wise choice ${ Player.name}. Your game ends here !`);
+    
+
+    return;
+  } 
+}  
+
+console.log('\n' +`Your choices in the battle were fantastic ${ Player.name}. You won the last boss and you take his treasure!`);
