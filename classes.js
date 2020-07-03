@@ -6,16 +6,6 @@ class Player
     }
 }
 
-/*class Animal{
-    constructor()
-    {
-        this.type = "Animal";
-    }
-}*/
-
-// export default {
-//     Player
-// }; */ 
 module.exports = {
     Player
     
